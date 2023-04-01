@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+         button {
+            background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);
+            margin: 10px;
+            margin-left: 0px;
+            padding: 15px 25px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            width:250px
+          }
+
+          button:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+          
+          
+.container{
+	background-color:white;
+}
+.heading{
+
+ 	margin-top:5em;
+	padding: 1em;
+	padding-left:3%;
+ 	background-color:#e8e8e8;
+ 	border-radius: 10px;
+ 	
+}
+
+.fields {
+    margin: auto;
+    text-align: center;
+}
+
+.login {
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
+p.fieldtext {
+    text-align: left;
+    font-family: poppins;
+    line-height: 10px;
+}
+
+input{
+    height: 40px;
+    width: 450px;
+    border-style: solid;
+    border-color: #dadada;
+    border-radius: 10px;
+}
+
+input:focus {
+    box-shadow: 0px 0px 7px rgb(0 11 180);
+    border-color: rgb(0 11 180);
+}
