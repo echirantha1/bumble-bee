@@ -1,14 +1,16 @@
 package com.chira.bumblebee.service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chira.bumblebee.dao.ProductManger;
 import com.chira.bumblebee.model.Product;
 
 public class ProductService {
 	
 	
-	private static ProductService productService;
+	private static ProductService productServiceObj;
 
 	private ProductService() {
  
@@ -16,24 +18,29 @@ public class ProductService {
 	
 	public static synchronized ProductService getProductServiceInstance() {
 		
-		if(productService == null) {
+		if(productServiceObj == null) {
 			
-			productService = new ProductService();
+			productServiceObj = new ProductService();
 			
 		}
-		return productService;
+		return productServiceObj;
 		
 	}
 	
 
-	public boolean registerProduct(Product product) {
+	private ProductManger getProductManager() {
+		return new ProductManger();
+	}
+	
+	
+	public boolean registerProduct(Product product) throws ClassNotFoundException, SQLException {
 
-		return false;
+		return getProductManager().addProduct(product);
 	}
 
-	public  Product getSpecificProduct(int productId) {
+	public  Product getSpecificProduct(int productId) throws ClassNotFoundException, SQLException {
 
-		return new Product();
+		return getProductManager().getSpecificProduct(productId);
 	}
 
 
