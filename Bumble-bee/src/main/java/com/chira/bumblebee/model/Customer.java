@@ -11,11 +11,10 @@ public class Customer {
 	private String password;
 	private String address;
 	private String mobile;
-	private int loanId;
 	private Date date;
 	
 	public Customer(int customerId, String nic, String name, String email, String password, String address,
-			String mobile, int loanId, Date date) {
+			String mobile, Date date) {
 		this.customerId = customerId;
 		this.nic = nic;
 		this.name = name;
@@ -23,7 +22,6 @@ public class Customer {
 		this.password = password;
 		this.address = address;
 		this.mobile = mobile;
-		this.loanId = loanId;
 		this.date = date;
 	}
 	
@@ -85,14 +83,6 @@ public class Customer {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-
-	public int getLoanId() {
-		return loanId;
-	}
-
-	public void setLoanId(int loanId) {
-		this.loanId = loanId;
 	}
 
 	public Date getDate() {

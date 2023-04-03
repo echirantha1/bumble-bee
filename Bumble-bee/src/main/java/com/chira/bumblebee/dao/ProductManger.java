@@ -1,6 +1,7 @@
 package com.chira.bumblebee.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,7 +46,7 @@ public class ProductManger {
 		return result > 0;	
 	}
 	
-	public Product  getSpecificProduct (int prodcutId) throws ClassNotFoundException, SQLException {
+	public Product getSpecificProduct (int prodcutId) throws ClassNotFoundException, SQLException {
 		
 		Connection connection = getConnection();
 		
@@ -74,13 +75,24 @@ public class ProductManger {
 	}
 	
 	public List<Product> getAllProducts() throws ClassNotFoundException, SQLException {
-		Connection connection = getConnection();
 		
+		Class.forName("com.mysql.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/bumblebee";
+		String username = "root";
+		String password = "pabasaraEK@1";
+		
+		Connection connection = DriverManager.getConnection(url, username, password);
+		
+//		Connection connection = getConnection();
+
 		String query = "SELECT * FROM product";
 		Statement st = connection.createStatement();
 		ResultSet rs = st.executeQuery(query);
 		
 		List<Product> productList = new ArrayList<Product>();
+		
+		System.out.println(rs.getString("productName"));
+		System.out.println("chira");
 		
 		while(rs.next()) {
 			Product product = new Product();

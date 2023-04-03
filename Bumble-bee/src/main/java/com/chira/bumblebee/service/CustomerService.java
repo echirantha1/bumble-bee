@@ -1,8 +1,10 @@
 package com.chira.bumblebee.service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chira.bumblebee.dao.CustomerManager;
 import com.chira.bumblebee.model.Customer;
 
 public class CustomerService {
@@ -20,24 +22,28 @@ public class CustomerService {
 		return customerServiceObj;
 	}
 	
-	public boolean registerCustomer(Customer customer) {
-		return false;
+	private CustomerManager getCustomerManager() {
+		return new CustomerManager();
 	}
 	
-	public boolean getSpecificCustomer(int customerId) {
-		return false;
+	public boolean registerCustomer(Customer customer) throws ClassNotFoundException, SQLException {
+		return getCustomerManager().addCustomer(customer);
 	}
 	
-	public List<Customer> getAllCustomers() {
-		return new ArrayList<Customer>();
+	public Customer getSpecificCustomer(int customerId) throws ClassNotFoundException, SQLException {
+		return getCustomerManager().getSpecificCustomer(customerId);
 	}
 	
-	public boolean editCustomer(Customer customer) {
-		return false;
+	public List<Customer> getAllCustomers() throws ClassNotFoundException, SQLException {
+		return getCustomerManager().getAllCustomers();
 	}
 	
-	public boolean deleteTheCustomer(int customerId) {
-		return false;
+	public boolean editCustomer(Customer customer) throws ClassNotFoundException, SQLException {
+		return getCustomerManager().updateCustomer(customer);
+	}
+	
+	public boolean deleteTheCustomer(int customerId) throws ClassNotFoundException, SQLException {
+		return getCustomerManager().deleteCustomer(customerId);
 	}
 
 }

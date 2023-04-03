@@ -24,6 +24,16 @@ public class Product {
 		this.description = description;
 		this.date = date;
 	}
+	
+	public Product(String productName, int categoryId, int brandId, int quantity, double productPrice,
+			String description) {
+		this.productName = productName;
+		this.categoryId = categoryId;
+		this.brandId = brandId;
+		this.quantity = quantity;
+		this.productPrice = productPrice;
+		this.description = description;
+	}
 
 	public Product() {
 		// TODO Auto-generated constructor stub

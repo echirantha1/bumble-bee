@@ -44,19 +44,17 @@ public class ProductService {
 	}
 
 
-	public List<Product> getAlLProducts(){
-		return new ArrayList<Product>();
+	public List<Product> getAlLProducts() throws ClassNotFoundException, SQLException{
+		return getProductManager().getAllProducts();
 	}
 
-	public  boolean editProduct(Product product) {
+	public  boolean editProduct(Product product) throws ClassNotFoundException, SQLException {
 
-		return false;
+		return getProductManager().updateProduct(product);
 	}
 	
-	public boolean deleteTheProduct(int productId) {
-		return false;
+	public boolean deleteTheProduct(int productId) throws ClassNotFoundException, SQLException {
+		return getProductManager().deleteProduct(productId);
 	}
-	
-	
 
 }

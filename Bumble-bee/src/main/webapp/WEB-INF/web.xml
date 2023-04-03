@@ -5,34 +5,18 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>LoginController</servlet-name>
-  	<display-name>LoginController</display-name>
-  	<description>This wiill handle Login Controller</description>
-  	<servlet-class>com.bumblebee.controller.LoginController</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>CustomerServlet</servlet-name>
-  	<display-name>CustomerServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.bumblebee.controller.CustomerServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<display-name>LoginServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.bumblebee.controller.LoginServlet</servlet-class>
+  	<servlet-name>ProductController</servlet-name>
+  	<display-name>ProductController</display-name>
+  	<description>This will handle all the product related requests</description>
+  	<servlet-class>com.chira.bumblebee.controller.ProductController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>LoginController</servlet-name>
-  	<url-pattern>/login</url-pattern>
+  	<servlet-name>ProductController</servlet-name>
+  	<url-pattern>/manage-products</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>CustomerServlet</servlet-name>
-  	<url-pattern>/CustomerServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/LoginServlet</url-pattern>
+  	<servlet-name>ProductController</servlet-name>
+  	<url-pattern>/welcome</url-pattern>
   </servlet-mapping>
   
 </web-app>
