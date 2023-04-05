@@ -1,7 +1,6 @@
 package com.chira.bumblebee.service;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.chira.bumblebee.dao.CustomerManager;
@@ -44,6 +43,10 @@ public class CustomerService {
 	
 	public boolean deleteTheCustomer(int customerId) throws ClassNotFoundException, SQLException {
 		return getCustomerManager().deleteCustomer(customerId);
+	}
+	
+	public Customer loginTheCustomer(String email, String password) throws ClassNotFoundException, SQLException {
+		return getCustomerManager().loginCustomer(email, password);
 	}
 
 }

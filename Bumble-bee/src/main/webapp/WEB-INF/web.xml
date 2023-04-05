@@ -8,16 +8,85 @@
   	<servlet-name>ProductController</servlet-name>
   	<display-name>ProductController</display-name>
   	<description>This will handle all the product related requests</description>
-  	<servlet-class>com.chira.bumblebee.controller.ProductController</servlet-class>
+  	<servlet-class>com.project.bumblebee.controller.ProductController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AdminController</servlet-name>
+  	<display-name>AdminController</display-name>
+  	<description>This will handle all request of admin</description>
+  	<servlet-class>com.project.bumblebee.controller.AdminController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BrandController</servlet-name>
+  	<display-name>BrandController</display-name>
+  	<description>This will handle all request of brand</description>
+  	<servlet-class>com.project.bumblebee.controller.BrandController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CategoryController</servlet-name>
+  	<display-name>CategoryController</display-name>
+  	<description>This will handle all category related requests</description>
+  	<servlet-class>com.project.bumblebee.controller.CategoryController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CustomerController</servlet-name>
+  	<display-name>CustomerController</display-name>
+  	<description>This will handle all customer related requests</description>
+  	<servlet-class>com.project.bumblebee.controller.CustomerController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InventoryController</servlet-name>
+  	<display-name>InventoryController</display-name>
+  	<description>This will handle all inventory related requests</description>
+  	<servlet-class>com.project.bumblebee.controller.InventoryController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoanController</servlet-name>
+  	<display-name>LoanController</display-name>
+  	<description>This will handle all loan related requests</description>
+  	<servlet-class>com.project.bumblebee.controller.LoanController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PaymentContoller</servlet-name>
+  	<display-name>PaymentContoller</display-name>
+  	<description>This will handle all payment related requests</description>
+  	<servlet-class>com.project.bumblebee.controller.PaymentContoller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProductController</servlet-name>
+  	<url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ProductController</servlet-name>
   	<url-pattern>/manage-products</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>ProductController</servlet-name>
-  	<url-pattern>/welcome</url-pattern>
+  	<servlet-name>AdminController</servlet-name>
+  	<url-pattern>/manage-admin</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+  	<servlet-name>BrandController</servlet-name>
+  	<url-pattern>/manage-brand</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CategoryController</servlet-name>
+  	<url-pattern>/manage-categories</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CustomerController</servlet-name>
+  	<url-pattern>/manage-customer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InventoryController</servlet-name>
+  	<url-pattern>/manage-inventory</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoanController</servlet-name>
+  	<url-pattern>/manage-loan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PaymentContoller</servlet-name>
+  	<url-pattern>/manage-payment</url-pattern>
+  </servlet-mapping>
 </web-app>
 

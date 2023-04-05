@@ -1,23 +1,25 @@
 package com.chira.bumblebee.model;
 
-import java.sql.Date;
-
 public class Inventory {
 	
 	private int inventoryId;
 	private int productId;
 	private int availableStock;
 	private int soldAmount;
-	private Date date;
 
-	public Inventory(int inventoryId, int productId, int availableStock, int soldAmount, Date date) {
+	public Inventory(int inventoryId, int productId, int availableStock, int soldAmount) {
 		this.inventoryId = inventoryId;
 		this.productId = productId;
 		this.availableStock = availableStock;
 		this.soldAmount = soldAmount;
-		this.date = date;
 	}
 
+	public Inventory(int productId, int availableStock, int soldAmount) {
+		this.productId = productId;
+		this.availableStock = availableStock;
+		this.soldAmount = soldAmount;
+	}
+	
 	public Inventory() {
 		// TODO Auto-generated constructor stub
 	}
@@ -52,14 +54,6 @@ public class Inventory {
 
 	public void setSoldAmount(int soldAmount) {
 		this.soldAmount = soldAmount;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 }

@@ -62,7 +62,6 @@ public class CustomerManager {
 			customer.setPassword(rs.getString("password"));
 			customer.setAddress(rs.getString("address"));
 			customer.setMobile(rs.getString("mobile"));
-			customer.setDate(rs.getDate("date"));
 		}
 		
 		ps.close();
@@ -89,7 +88,6 @@ public class CustomerManager {
 			customer.setPassword(rs.getString("password"));
 			customer.setAddress(rs.getString("address"));
 			customer.setMobile(rs.getString("mobile"));
-			customer.setDate(rs.getDate("date"));
 			
 			customerList.add(customer);
 		}
@@ -110,6 +108,7 @@ public class CustomerManager {
 		ps.setString(4, customer.getPassword());
 		ps.setString(5, customer.getAddress());
 		ps.setString(6, customer.getMobile());
+		ps.setInt(7, customer.getCustomerId());
 		
 		int result = ps.executeUpdate();
 		
@@ -132,6 +131,35 @@ public class CustomerManager {
 		connection.close();
 		
 		return result > 0;
+	}
+	
+	public Customer loginCustomer(String email, String password) throws ClassNotFoundException, SQLException {
+
+		Connection connection = getConnection();
+		
+		String query = "SELECT * FROM customer WHERE email = ? && password = ?";
+		
+		PreparedStatement ps = connection.prepareStatement(query);
+		ps.setString(1, email);
+		ps.setString(2, password);
+		
+		ResultSet rs = ps.executeQuery();
+		Customer customer = new Customer();
+		
+		while(rs.next()) {
+			customer.setCustomerId(rs.getInt("customerId"));
+			customer.setNic(rs.getString("nic"));
+			customer.setName(rs.getString("name"));
+			customer.setEmail(rs.getString("email"));
+			customer.setPassword(rs.getString("password"));
+			customer.setAddress(rs.getString("address"));
+			customer.setMobile(rs.getString("mobile"));
+		}
+		
+		ps.close();
+		connection.close();
+		
+		return customer;
 	}
 
 }

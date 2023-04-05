@@ -56,7 +56,6 @@ public class InventoryManager {
 			stock.setProductId(rs.getInt("productId"));
 			stock.setAvailableStock(rs.getInt("availableStock"));
 			stock.setSoldAmount(rs.getInt("soldAmount"));
-			stock.setDate(rs.getDate("date"));
 		}
 		
 		ps.close();
@@ -80,7 +79,6 @@ public class InventoryManager {
 			stock.setProductId(rs.getInt("productId"));
 			stock.setAvailableStock(rs.getInt("availableStock"));
 			stock.setSoldAmount(rs.getInt("soldAmount"));
-			stock.setDate(rs.getDate("date"));
 			
 			stockList.add(stock);
 		}
@@ -98,6 +96,7 @@ public class InventoryManager {
 		ps.setInt(1, stock.getProductId());
 		ps.setInt(2, stock.getAvailableStock());
 		ps.setInt(3, stock.getSoldAmount());
+		ps.setInt(4, stock.getInventoryId());
 		
 		int result = ps.executeUpdate();
 		

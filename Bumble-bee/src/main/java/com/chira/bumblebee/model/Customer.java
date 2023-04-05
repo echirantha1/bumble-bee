@@ -1,7 +1,5 @@
 package com.chira.bumblebee.model;
 
-import java.util.Date;
-
 public class Customer {
 
 	private int customerId;
@@ -11,10 +9,9 @@ public class Customer {
 	private String password;
 	private String address;
 	private String mobile;
-	private Date date;
 	
 	public Customer(int customerId, String nic, String name, String email, String password, String address,
-			String mobile, Date date) {
+			String mobile) {
 		this.customerId = customerId;
 		this.nic = nic;
 		this.name = name;
@@ -22,7 +19,16 @@ public class Customer {
 		this.password = password;
 		this.address = address;
 		this.mobile = mobile;
-		this.date = date;
+	}
+	
+	public Customer(String nic, String name, String email, String password, String address,
+			String mobile) {
+		this.nic = nic;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.address = address;
+		this.mobile = mobile;
 	}
 	
 	public Customer() {
@@ -84,14 +90,5 @@ public class Customer {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	
 }

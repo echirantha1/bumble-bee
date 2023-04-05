@@ -1,28 +1,24 @@
 package com.chira.bumblebee.model;
 
-import java.util.Date;
-
 public class Product {
 
-	private int prodcutId;
+	private int productId;
 	private String productName;
 	private int categoryId;
 	private int brandId;
 	private int quantity;
 	private double productPrice;
 	private String description;
-	private Date date;
 
-	public Product(int prodcutId, String productName, int categoryId, int brandId, int quantity, double productPrice,
-			String description, Date date) {
-		this.prodcutId = prodcutId;
+	public Product(int productId, String productName, int categoryId, int brandId, int quantity, double productPrice,
+			String description) {
+		this.productId = productId;
 		this.productName = productName;
 		this.categoryId = categoryId;
 		this.brandId = brandId;
 		this.quantity = quantity;
 		this.productPrice = productPrice;
 		this.description = description;
-		this.date = date;
 	}
 	
 	public Product(String productName, int categoryId, int brandId, int quantity, double productPrice,
@@ -39,12 +35,12 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getProdcutId() {
-		return prodcutId;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setProdcutId(int prodcutId) {
-		this.prodcutId = prodcutId;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
 	public String getProductName() {
@@ -93,15 +89,6 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	
+	}	
 	
 }

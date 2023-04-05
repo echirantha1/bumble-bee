@@ -61,7 +61,6 @@ public class LoanManager {
 			loan.setInstallments(rs.getString("installments"));
 			loan.setInterest(rs.getString("interest"));
 			loan.setCustomerId(rs.getInt("customerId"));
-			loan.setDate(rs.getDate("date"));
 		}
 		
 		ps.close();
@@ -87,7 +86,6 @@ public class LoanManager {
 			loan.setInstallments(rs.getString("installments"));
 			loan.setInterest(rs.getString("interest"));
 			loan.setCustomerId(rs.getInt("customerId"));
-			loan.setDate(rs.getDate("date"));
 			
 			loanList.add(loan);
 		}
@@ -107,6 +105,7 @@ public class LoanManager {
 		ps.setString(3, loan.getInstallments());
 		ps.setString(4, loan.getInterest());
 		ps.setInt(5, loan.getCustomerId());
+		ps.setInt(6, loan.getLoanId());
 		
 		int result = ps.executeUpdate();
 		

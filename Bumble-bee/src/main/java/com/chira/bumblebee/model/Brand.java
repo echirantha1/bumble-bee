@@ -1,17 +1,17 @@
 package com.chira.bumblebee.model;
 
-import java.sql.Date;
-
 public class Brand {
 	
 	private int brandId;
 	private String brandName;
-	private Date date;
 
-	public Brand(int brandId, String brandName, Date date) {
+	public Brand(int brandId, String brandName) {
 		this.brandId = brandId;
 		this.brandName = brandName;
-		this.date = date;
+	}
+	
+	public Brand(String brandName) {
+		this.brandName = brandName;
 	}
 
 	public Brand() {
@@ -32,14 +32,6 @@ public class Brand {
 
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 }

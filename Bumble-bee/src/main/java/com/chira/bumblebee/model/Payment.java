@@ -1,21 +1,23 @@
 package com.chira.bumblebee.model;
 
-import java.sql.Date;
-
 public class Payment {
 	
 	private int paymentId;
 	private int productId;
 	private int customerId;
 	private int soldAmount;
-	private Date date;
 
-	public Payment(int paymentId, int productId, int customerId, int soldAmount, Date date) {
+	public Payment(int paymentId, int productId, int customerId, int soldAmount) {
 		this.paymentId = paymentId;
 		this.productId = productId;
 		this.customerId = customerId;
 		this.soldAmount = soldAmount;
-		this.date = date;
+	}
+	
+	public Payment(int productId, int customerId, int soldAmount) {
+		this.productId = productId;
+		this.customerId = customerId;
+		this.soldAmount = soldAmount;
 	}
 
 	public Payment() {
@@ -52,14 +54,6 @@ public class Payment {
 
 	public void setSoldAmount(int soldAmount) {
 		this.soldAmount = soldAmount;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 }

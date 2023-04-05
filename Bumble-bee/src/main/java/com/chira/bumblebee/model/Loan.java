@@ -1,7 +1,5 @@
 package com.chira.bumblebee.model;
 
-import java.sql.Date;
-
 public class Loan {
 	
 	private int loanId;
@@ -10,19 +8,24 @@ public class Loan {
 	private String installments;
 	private String interest;
 	private int customerId;
-	private Date date;
 	
-	public Loan(int loanId, int productId, double amount, String installments, String interest, int customerId,
-			Date date) {
+	public Loan(int loanId, int productId, double amount, String installments, String interest, int customerId) {
 		this.loanId = loanId;
 		this.productId = productId;
 		this.amount = amount;
 		this.installments = installments;
 		this.interest = interest;
 		this.customerId = customerId;
-		this.date = date;
 	}
 
+	public Loan(int productId, double amount, String installments, String interest, int customerId) {
+		this.productId = productId;
+		this.amount = amount;
+		this.installments = installments;
+		this.interest = interest;
+		this.customerId = customerId;
+	}
+	
 	public Loan() {
 		// TODO Auto-generated constructor stub
 	}
@@ -74,13 +77,4 @@ public class Loan {
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 }

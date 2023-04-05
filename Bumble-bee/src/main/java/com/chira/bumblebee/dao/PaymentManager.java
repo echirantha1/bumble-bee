@@ -57,7 +57,6 @@ public class PaymentManager {
 			payment.setProductId(rs.getInt("productId"));
 			payment.setCustomerId(rs.getInt("customerId"));
 			payment.setSoldAmount(rs.getInt("soldAmount"));
-			payment.setDate(rs.getDate("date"));
 		}
 		
 		ps.close();
@@ -81,7 +80,6 @@ public class PaymentManager {
 			payment.setProductId(rs.getInt("productId"));
 			payment.setCustomerId(rs.getInt("customerId"));
 			payment.setSoldAmount(rs.getInt("soldAmount"));
-			payment.setDate(rs.getDate("date"));
 			
 			paymentList.add(payment);
 		}
@@ -94,11 +92,12 @@ public class PaymentManager {
 	public boolean updatePayment(Payment payment) throws ClassNotFoundException, SQLException {
 		Connection connection = getConnection();
 		
-		String query = "UPDATE payment SET productId = ?, customerId = ?, soldAmount = ? WHERE loanId = ?";
+		String query = "UPDATE payment SET productId = ?, customerId = ?, soldAmount = ? WHERE paymentId = ?";
 		PreparedStatement ps = connection.prepareStatement(query);
 		ps.setInt(1, payment.getProductId());
 		ps.setInt(2, payment.getCustomerId());
 		ps.setInt(3, payment.getSoldAmount());
+		ps.setInt(4, payment.getPaymentId());
 		
 		int result = ps.executeUpdate();
 		

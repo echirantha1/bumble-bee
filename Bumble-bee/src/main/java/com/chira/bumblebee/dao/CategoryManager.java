@@ -52,7 +52,6 @@ public class CategoryManager {
 		while(rs.next()) {
 			category.setCategoryId(rs.getInt("categoryId"));
 			category.setCategoryName(rs.getString("categoryName"));
-			category.setDate(rs.getDate("date"));
 		}
 		
 		ps.close();
@@ -74,7 +73,6 @@ public class CategoryManager {
 			Category category = new Category();
 			category.setCategoryId(rs.getInt("categoryId"));
 			category.setCategoryName(rs.getString("categoryName"));
-			category.setDate(rs.getDate("date"));
 			
 			categoryList.add(category);
 		}
@@ -90,6 +88,7 @@ public class CategoryManager {
 		String query = "UPDATE category SET categoryName = ? WHERE categoryId = ?";
 		PreparedStatement ps = connection.prepareStatement(query);
 		ps.setString(1, category.getCategoryName());
+		ps.setInt(2, category.getCategoryId());
 		
 		int result = ps.executeUpdate();
 		

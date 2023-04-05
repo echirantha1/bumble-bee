@@ -1,19 +1,19 @@
 package com.chira.bumblebee.model;
 
-import java.sql.Date;
-
 public class Category {
 	
 	private int categoryId;
 	private String categoryName;
-	private Date date;
 
-	public Category(int categoryId, String categoryName, Date date) {
+	public Category(int categoryId, String categoryName) {
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
-		this.date = date;
 	}
 
+	public Category(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}
@@ -32,14 +32,6 @@ public class Category {
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 }

@@ -52,7 +52,6 @@ public class BrandManager {
 		while(rs.next()) {
 			brand.setBrandId(rs.getInt("brandId"));
 			brand.setBrandName(rs.getString("brandName"));
-			brand.setDate(rs.getDate("date"));
 		}
 		
 		ps.close();
@@ -74,7 +73,6 @@ public class BrandManager {
 			Brand brand = new Brand();
 			brand.setBrandId(rs.getInt("brandId"));
 			brand.setBrandName(rs.getString("brandName"));
-			brand.setDate(rs.getDate("date"));
 			
 			brandList.add(brand);
 		}
@@ -90,6 +88,7 @@ public class BrandManager {
 		String query = "UPDATE brand SET brandName = ? WHERE brandId = ?";
 		PreparedStatement ps = connection.prepareStatement(query);
 		ps.setString(1, brand.getBrandName());
+		ps.setInt(2, brand.getBrandId());
 		
 		int result = ps.executeUpdate();
 		
