@@ -4,18 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.chira.bumblebee.model.Admin;
 
 public class AdminManager {
 
 	public DbConnector getDbConnector() {
-		
 		DbConnectorFactory factory = new MySqlDbConnectorFactoryImpl();
-		return factory.getDbConnector();	
+		return factory.getDbConnector();
 	}
 	
 	private Connection getConnection() throws ClassNotFoundException, SQLException {
@@ -23,50 +19,29 @@ public class AdminManager {
 		return connector.getDbConnection();
 	}
 	
-	public Admin getSpecificAdmin (int adminId) throws ClassNotFoundException, SQLException {
+	
+	public Admin getSpecificAdmin(String email, String password) throws ClassNotFoundException, SQLException {
 		
 		Connection connection = getConnection();
+		Admin admin = null;
 		
-		String query = "SELECT * FROM admin WHERE adminId = ?";
+		String query = "SELECT * FROM admin WHERE email = ? AND password = ?";
+		
 		PreparedStatement ps = connection.prepareStatement(query);
-		ps.setInt(1, adminId);
-		
+		ps.setString(1, email);
+		ps.setString(2, password);
+	
 		ResultSet rs = ps.executeQuery();
-		Admin admin = new Admin();
 		
-		while(rs.next()) {
-			admin.setAdminId(rs.getInt("adminId"));
+		if(rs.next()) {
+			admin = new Admin();
 			admin.setEmail(rs.getString("email"));
-			admin.setPassword(rs.getString("password"));
 		}
 		
 		ps.close();
 		connection.close();
 		
 		return admin;
-	}
-	
-	public List<Admin> getAllAdmins() throws ClassNotFoundException, SQLException {
-		Connection connection = getConnection();
-		
-		String query = "SELECT * FROM admin";
-		Statement st = connection.createStatement();
-		ResultSet rs = st.executeQuery(query);
-		
-		List<Admin> adminList = new ArrayList<Admin>();
-		
-		while(rs.next()) {
-			Admin admin = new Admin();
-			admin.setAdminId(rs.getInt("adminId"));
-			admin.setEmail(rs.getString("email"));
-			admin.setPassword(rs.getString("password"));
-			
-			adminList.add(admin);
-		}
-		
-		st.close();
-		connection.close();
-		return adminList;
 	}
 
 }

@@ -53,6 +53,9 @@ public class CustomerController extends HttpServlet {
 		else if(type != null && type.equals("register")) {
 			regCustomer(request, response);
 		}
+		else if(type != null && type.equals("login")) {
+			loginCurrentCustomer(request, response);
+		}
 	}
 	
 	
@@ -219,18 +222,26 @@ public class CustomerController extends HttpServlet {
 
 		String message = "";
 		
-		Customer customer = new Customer();
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
 		try {
-			customer = service.loginTheCustomer(email, password);
+			Customer customer = service.loginTheCustomer(email, password);
+			
+			if(customer != null) {
+				String path = "home.jsp";
+			    RequestDispatcher rd = request.getRequestDispatcher(path);
+			    rd.forward(request, response);
+			}
+			else {
+				message = "Username or Password invalid!!";
+			}
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			message = e.getMessage();
 		}
 		
 		request.setAttribute("message", message);
-		request.setAttribute("customer", customer);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("auth-customer.jsp");
 		rd.forward(request, response);

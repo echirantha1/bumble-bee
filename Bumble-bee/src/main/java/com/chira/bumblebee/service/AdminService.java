@@ -1,7 +1,6 @@
 package com.chira.bumblebee.service;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import com.chira.bumblebee.dao.AdminManager;
 import com.chira.bumblebee.model.Admin;
@@ -15,24 +14,19 @@ public class AdminService {
 	}
 	
 	public static synchronized AdminService getAdminServiceInstance() {
+		
 		if(adminServiceObj == null) {
 			adminServiceObj = new AdminService();
 		}
-		return adminServiceObj;
+		
+		return adminServiceObj;	
 	}
 	
 	private AdminManager getAdminManager() {
 		return new AdminManager();
 	}
-
 	
-	public Admin getSpecificAdmin(int adminId) throws ClassNotFoundException, SQLException {
-		return getAdminManager().getSpecificAdmin(adminId);
+	public Admin getSpecificAdmin(String email, String password) throws ClassNotFoundException, SQLException {
+		return getAdminManager().getSpecificAdmin(email, password);
 	}
-	
-	public List<Admin> getAllAdmins() throws ClassNotFoundException, SQLException {
-		return getAdminManager().getAllAdmins();
-	}
-	
-
 }

@@ -136,26 +136,20 @@ public class CustomerManager {
 	public Customer loginCustomer(String email, String password) throws ClassNotFoundException, SQLException {
 
 		Connection connection = getConnection();
+		Customer customer = null;
 		
-		String query = "SELECT * FROM customer WHERE email = ? && password = ?";
+		String query = "SELECT * FROM customer WHERE email = ? AND password = ?";
 		
 		PreparedStatement ps = connection.prepareStatement(query);
 		ps.setString(1, email);
 		ps.setString(2, password);
-		
+	
 		ResultSet rs = ps.executeQuery();
-		Customer customer = new Customer();
 		
-		while(rs.next()) {
-			customer.setCustomerId(rs.getInt("customerId"));
-			customer.setNic(rs.getString("nic"));
+		if(rs.next()) {
+			customer = new Customer();
 			customer.setName(rs.getString("name"));
-			customer.setEmail(rs.getString("email"));
-			customer.setPassword(rs.getString("password"));
-			customer.setAddress(rs.getString("address"));
-			customer.setMobile(rs.getString("mobile"));
 		}
-		
 		ps.close();
 		connection.close();
 		

@@ -39,7 +39,7 @@
 			</div>
 			<div class="row align-items-center justify-content-center">
 				<div class="col mb-3 col-md-5 text-center">
-					<button type="submit" class="btn btn-info text-white col-md-2">Search</button>
+					<button type="submit" class="btn btn-info text-white col-md-2" style="min-width:100px">Search</button>
 				</div>
 			</div>
 			<input type="hidden" name="type" class="form-control" value="specific" />
